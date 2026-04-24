@@ -1,0 +1,10 @@
+Lab02 - Answers
+
+1. Có thể tạo constructor theo title rồi thêm constructor theo category không?
+Không. Java không cho phép nếu hai constructor có cùng kiểu tham số (ví dụ đều là String). Overloading phải khác số lượng, kiểu hoặc thứ tự tham số.
+
+2. Khi nào nên dùng accessor (getter/setter)?
+Chỉ dùng khi cần truy cập hoặc thay đổi dữ liệu một cách kiểm soát. Không nên tạo getter/setter cho tất cả thuộc tính nếu không cần thiết.
+
+3. Trong AIMS, DigitalVideoDisc có cần setter không?
+Không. Vì thông tin DVD không thay đổi sau khi tạo, nên chỉ cần getter để hiển thị dữ liệu.
