@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run CartTest",
+      "type": "shell",
+      "command": "& 'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin\\javac.exe' -cp src -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | ForEach-Object { $_.FullName }); if ($LASTEXITCODE -eq 0) { & 'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin\\java.exe' -cp bin hust.soict.dsai.test.cart.CartTest }",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$javac"
+    }
+  ]
+}
