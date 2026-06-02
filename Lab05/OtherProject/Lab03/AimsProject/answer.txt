@@ -1,0 +1,79 @@
+Câu hỏi (Phần 2.1)
+Bạn sẽ tạo một phương thức mới có cùng tên nhưng với kiểu tham số khác.
+addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
+
+Phương thức này sẽ thêm một danh sách DVD vào giỏ hàng hiện tại.
+
+Hãy thử tạo một phương thức addDigitalVideoDisc cho phép truyền vào số lượng đối số tùy ý cho dvd. So sánh với việc dùng tham số mảng. Trong trường hợp này bạn thích cách nào hơn?
+
+Trả lời:
+Tôi sẽ ưu tiên phương thức addDigitalVideoDisc cho phép truyền vào số lượng đối số tùy ý, vì nó linh hoạt hơn phương thức còn lại.
+
+Nó có thể nhận:
+
+Một mảng đã được định nghĩa trước
+Hoặc một danh sách các đối tượng riêng lẻ, ngăn cách bằng dấu phẩy
+
+Trong khi đó, phương thức addDigitalVideoDisc(DigitalVideoDisc [] dvdList) yêu cầu người dùng phải tạo mảng trước rồi mới truyền vào, nên kém tiện lợi hơn.
+
+Câu hỏi:
+Java là ngôn ngữ lập trình truyền tham trị (Pass by Value) hay truyền tham chiếu (Pass by Reference)?
+
+Trả lời:
+Java là ngôn ngữ chỉ sử dụng truyền tham trị (Pass by Value).
+
+Với kiểu nguyên thủy (int, double, boolean,...):
+Giá trị được truyền là dữ liệu thực tế.
+Phương thức nhận một bản sao → thay đổi bên trong phương thức không ảnh hưởng biến gốc.
+
+Với đối tượng (String, List, MyClass,...):
+Biến không chứa đối tượng mà chứa tham chiếu (địa chỉ bộ nhớ).
+Khi truyền vào, Java sao chép giá trị của tham chiếu.
+→ Cả biến gốc và tham số đều trỏ đến cùng một đối tượng trong bộ nhớ.
+
+Bạn có thể thay đổi nội dung đối tượng, nhưng không thể thay đổi đối tượng mà biến gốc đang trỏ tới.
+
+→ Dù nhìn có vẻ giống Pass by Reference, nhưng bản chất vẫn là Pass by Value.
+
+Câu hỏi (Phần 3)
+Sau khi gọi swap(jungleDVD, cinderellaDVD) tại sao tiêu đề của hai đối tượng này vẫn giữ nguyên?
+
+Trả lời:
+Tiêu đề không thay đổi vì Java luôn là Pass by Value.
+
+Khi gọi swap(jungleDVD, cinderellaDVD):
+
+Giá trị của các tham chiếu được sao chép vào các biến cục bộ o1 và o2.
+Bên trong phương thức, việc hoán đổi chỉ xảy ra với bản sao này.
+
+Do đó:
+Các biến gốc jungleDVD và cinderellaDVD trong hàm main không bị ảnh hưởng
+→ vẫn trỏ đến đối tượng ban đầu
+→ tiêu đề không thay đổi.
+Câu hỏi (Phần 3)
+
+Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tại sao tiêu đề của JungleDVD lại bị thay đổi?
+
+Trả lời:
+Dù Java truyền tham chiếu theo kiểu Pass by Value, nhưng giá trị được truyền chính là địa chỉ của đối tượng trong bộ nhớ (heap).
+
+Trong phương thức changeTitle:
+
+Tham số dvd là bản sao của tham chiếu tới jungleDVD
+Khi gọi dvd.setTitle(title), bạn đang thay đổi dữ liệu của đối tượng thật trong bộ nhớ
+
+Vì:
+dvd và jungleDVD cùng trỏ đến một đối tượng
+→ thay đổi sẽ được phản ánh ra bên ngoài
+
+Dòng lệnh:
+dvd = new DigitalVideoDisc(oldTitle);
+
+chỉ thay đổi biến cục bộ dvd trỏ sang đối tượng mới
+→ không ảnh hưởng đến jungleDVD ban đầu.
+
+Câu hỏi (Phần 6)
+Gợi ý: Viết phương thức toString() cho lớp DigitalVideoDisc. Kiểu trả về của phương thức này là gì?
+
+Trả lời:
+Kiểu trả về nên là String, để có thể in ra thông tin của một DVD.
